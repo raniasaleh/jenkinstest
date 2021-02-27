@@ -12,23 +12,23 @@ pipeline {
 								checkout scm
 						}
 				}
-				stage("Build image") {
-						steps {
-								script {
-										myapp = docker.build("raniasaleh/hello:${env.BUILD_ID}")
-								}
-						}
-				}
-				stage("Push image") {
-						steps {
-								script {
-										docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-														myapp.push("latest")
-														myapp.push("${env.BUILD_ID}")
-										}
-								}
-						}
-				}
+				// stage("Build image") {
+				// 		steps {
+				// 				script {
+				// 						myapp = docker.build("raniasaleh/hello:${env.BUILD_ID}")
+				// 				}
+				// 		}
+				// }
+				// stage("Push image") {
+				// 		steps {
+				// 				script {
+				// 						docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+				// 										myapp.push("latest")
+				// 										myapp.push("${env.BUILD_ID}")
+				// 						}
+				// 				}
+				// 		}
+				// }
 				stage('Deploy to ibmcloud') {
 						steps{
 							 sh '''
