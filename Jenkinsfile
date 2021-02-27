@@ -29,10 +29,12 @@ pipeline {
                 }
             }
         }
-        stage('Deploy to GKE') {
+        stage('Deploy to ibmcloud') {
             steps{
-                sh "sed -i 's/hello:latest/hello:${env.BUILD_ID}/g' deployment.yaml"
-                step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, manifestPattern: 'deployment.yaml',  verifyDeployments: true])
+               sh '''
+                 #!/bin/bash
+                kubectl apply -f deployment.yaml
+                '''
             }
         }
     }
