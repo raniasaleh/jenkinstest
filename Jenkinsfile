@@ -33,7 +33,7 @@ pipeline {
             steps{
                sh '''
                  #!/bin/bash
-                kubectl get ns
+                kubectl apply -f deployment.yaml --validate=false
                 '''
             }
         }
