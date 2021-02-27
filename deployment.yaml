@@ -4,7 +4,7 @@ metadata:
 name: hello
 labels:
   app: hello
-spec:
+# spsec:
 # strategy:
 #   type: Recreate
 template:
@@ -24,6 +24,7 @@ template:
 ---
 apiVersion: v1
 kind: Service
+name: hello-service
 metadata:
 name: hello
 labels:
