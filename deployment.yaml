@@ -19,5 +19,5 @@ spec:
         image: raniasaleh/hello:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 5000
+        - containerPort: 5100
           name: hello
