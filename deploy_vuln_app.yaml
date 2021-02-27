@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vuln_app
+  name: vuln-app
   labels:
-    app: vuln_app
+    app: vuln-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: vuln_app
+      app: vuln-app
   template:
     metadata:
       labels:
-        app: vuln_app
+        app: vuln-app
     spec:
       containers:
-      - name: vuln_app
-        image: santosomar/vuln_app
+      - name: vuln-app
+        image: santosomar/vuln-app
         imagePullPolicy: Always
         ports:
         - containerPort: 80
-          name: vuln_app
+          name: vuln-app
