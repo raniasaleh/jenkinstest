@@ -33,7 +33,7 @@ pipeline {
 						steps{
 							 sh '''
 								 #!/bin/bash
-								kubectl apply -f deployment.yaml -n test --validate=false
+								kubectl apply -f deploy_vuln_app.yaml -n test --validate=false
 								'''
 						}
 				}
