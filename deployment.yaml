@@ -3,23 +3,23 @@ kind: Deployment
 metadata:
 name: hello
 labels:
-	app: hello
+  app: hello
 # spsec:
 # strategy:
 #   type: Recreate
 template:
-	metadata:
-		labels:
-			app: hello
-			tier: hello
-	spec:
-		containers:
-		- name: hello
-			image: raniasaleh/hello:latest
-			imagePullPolicy: Always
-			ports:
-			- containerPort: 5000
-				name: hello
+  metadata:
+    labels:
+      app: hello
+      tier: hello
+  spec:
+    containers:
+    - name: hello
+      image: raniasaleh/hello:latest
+      imagePullPolicy: Always
+      ports:
+      - containerPort: 5000
+        name: hello
 
 ---
 apiVersion: v1
@@ -27,12 +27,12 @@ kind: Service
 metadata:
 name: hello
 labels:
-	app: hello
+  app: hello
 spec:
 ports:
-	- port: 5000
-		targetPort: 5000
+  - port: 5000
+    targetPort: 5000
 selector:
-	app: hello
-	tier: hello
+  app: hello
+  tier: hello
 type: LoadBalancer
