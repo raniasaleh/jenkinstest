@@ -24,7 +24,6 @@ template:
 ---
 apiVersion: v1
 kind: Service
-name: hello-service
 metadata:
 name: hello
 labels:
